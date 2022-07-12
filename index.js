@@ -11,48 +11,57 @@ const osclient = new OpenSeaStreamClient({
     }
 });
 
-const mdbclient = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
+const mdbclient = new MongoClient(process.env.MONGODB_URI);
 
-const db =mdbclient.db('opensea');
+const db = mdbclient.db('opensea');
 
 const itemMetaDataUpdated = async (event) => {
     await mdbclient.connect();
     const collection = db.collection('itemMetaDataUpdated');
+    collection.insertOne(event);
     console.log('itemMetaDataUpdated');
 };
 
 const itemListed = async (event) => {
     await mdbclient.connect();
     const collection = db.collection('itemListed');
-    console.log(event);
+    collection.insertOne(event);
+    console.log('itemListed');
 };
 
 const itemSold = async (event) => {
     await mdbclient.connect();
     const collection = db.collection('itemSold');
-    console.log(event);
+    collection.insertOne(event);
+    console.log('itemSold');
 };
 
 const itemTransferred = async (event) => {
     await mdbclient.connect();
     const collection = db.collection('itemTransferred');
-    console.log(event);
+    collection.insertOne(event);
+    console.log('itemTransferred');
 };
 
 const itemReceivedBid = async (event) => {
     await mdbclient.connect();
     const collection = db.collection('itemReceivedBid');
-    console.log(event);
+    collection.insertOne(event);
+    console.log('itemReceivedBid');
 };
 
 const itemReceivedOffer = async (event) => {
     await mdbclient.connect();
     const collection = db.collection('itemReceivedOffer');
-    console.log(event);
+    collection.insertOne(event);
+    console.log('itemReceivedOffer');
 };
 
 const itemCancelled = async (event) => {
-    console.log(event);
+    await mdbclient.connect();
+    const collection = db.collection('itemCancelled');
+    collection.insertOne(event);
+    console.log('itemCancelled');
 };
 
 osclient.onItemMetadataUpdated('*', itemMetaDataUpdated);
