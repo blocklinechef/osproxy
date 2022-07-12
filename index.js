@@ -11,6 +11,8 @@ const osclient = new OpenSeaStreamClient({
     }
 });
 
+const mdbclient = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
+
 const itemMetaDataUpdated = async (event) => {
     console.log(event);
 };
