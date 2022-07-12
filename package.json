@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@opensea/stream-js": "^0.0.20",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
+    "mongodb": "^4.7.0",
     "ws": "^8.8.0"
   }
 }
