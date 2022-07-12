@@ -13,27 +13,41 @@ const osclient = new OpenSeaStreamClient({
 
 const mdbclient = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
 
+const db =mdbclient.db('opensea');
+
 const itemMetaDataUpdated = async (event) => {
-    console.log(event);
+    await mdbclient.connect();
+    const collection = db.collection('itemMetaDataUpdated');
+    console.log('itemMetaDataUpdated');
 };
 
 const itemListed = async (event) => {
+    await mdbclient.connect();
+    const collection = db.collection('itemListed');
     console.log(event);
 };
 
 const itemSold = async (event) => {
+    await mdbclient.connect();
+    const collection = db.collection('itemSold');
     console.log(event);
 };
 
 const itemTransferred = async (event) => {
+    await mdbclient.connect();
+    const collection = db.collection('itemTransferred');
     console.log(event);
 };
 
 const itemReceivedBid = async (event) => {
+    await mdbclient.connect();
+    const collection = db.collection('itemReceivedBid');
     console.log(event);
 };
 
 const itemReceivedOffer = async (event) => {
+    await mdbclient.connect();
+    const collection = db.collection('itemReceivedOffer');
     console.log(event);
 };
 
