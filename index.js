@@ -71,6 +71,3 @@ osclient.onItemTransferred('*', itemTransferred);
 osclient.onItemReceivedBid('*', itemReceivedBid);
 osclient.onItemReceivedOffer('*', itemReceivedOffer);
 osclient.onItemCancelled('*', itemCancelled);
-
-
-//this is new change
